@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Spectator — Weekly Edition No. 18</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--serif:"EB Garamond",Garamond,Georgia,serif;--display:"Playfair Display","Cormorant Garamond",Garamond,serif;--cormorant:"Cormorant Garamond","EB Garamond",Garamond,serif;--mono:"JetBrains Mono","Courier New",monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:var(--serif);font-size:20px;line-height:1.55;color:#111;background:#f3ede2}
+a{color:inherit}
+a.article-link{display:inline-block;margin-top:28px;font-family:var(--cormorant);font-size:1.1rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:10px 24px;border:1px solid currentColor}
+::selection{background:#111;color:#f5e9c8}
+.cover{min-height:100vh;background:#0d0e0d;color:#f5e9c8;padding:48px 72px 64px;display:flex;flex-direction:column;justify-content:space-between;border-bottom:1px solid #333}
+.cover-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #f5e9c8;padding-bottom:16px;font-family:var(--cormorant);font-size:1rem;letter-spacing:.18em;text-transform:uppercase}
+.cover-hero-logo{display:block;width:min(72%,680px);height:auto;margin:40px auto 32px}
+.cover-tagline{font-family:var(--cormorant);font-style:italic;font-size:clamp(1.4rem,2.2vw,2.1rem);line-height:1.3;max-width:680px;margin:0 auto;text-align:center;border-top:1px solid #f5e9c8;padding-top:22px}
+.cover-bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:36px;margin-top:48px;padding-top:22px;border-top:2px solid #f5e9c8;font-family:var(--cormorant);font-size:1.1rem;line-height:1.45}
+.cover-bottom h4{font-family:var(--cormorant);font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:.9rem;margin-bottom:10px;border-bottom:1px solid #f5e9c8;padding-bottom:8px}
+.cover-bottom p{font-style:italic}
+.cover-bottom a{text-decoration:underline;text-underline-offset:3px}
+.spread{min-height:100vh;padding:70px 80px 90px;position:relative;overflow:hidden}
+.spread-meta{display:flex;justify-content:space-between;font-family:var(--cormorant);font-size:1rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:50px}
+.article-no{font-family:var(--display);font-weight:800;font-style:italic}
+/* S1 cream hero */
+.s1{background:#f3ede2;color:#1a1a1a}
+.s1 .kicker{font-family:var(--cormorant);font-style:italic;font-size:1.7rem;color:#8a3324;margin-bottom:20px}
+.s1-headline{font-family:var(--display);font-weight:800;font-size:clamp(4rem,8.5vw,8rem);line-height:.95;letter-spacing:-.025em;margin-bottom:30px;max-width:1400px}
+.s1-headline em{font-weight:400;font-style:italic}
+.s1-deck{font-family:var(--cormorant);font-style:italic;font-size:1.9rem;line-height:1.3;max-width:900px;margin-bottom:50px;color:#444}
+.s1-byline{font-family:var(--cormorant);text-transform:uppercase;letter-spacing:.2em;font-size:1rem;margin-bottom:60px;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;padding:14px 0;display:flex;justify-content:space-between}
+.s1-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:60px;align-items:start}
+.s1-body{columns:2;column-gap:40px;font-size:1.15rem;line-height:1.6}
+.s1-body p{margin-bottom:1em;text-indent:1.4em}
+.s1-body p:first-child{text-indent:0}
+.s1-body p:first-child::first-letter{font-family:var(--display);float:left;font-size:5.5em;line-height:.85;padding:8px 12px 0 0;font-weight:800;color:#8a3324}
+.s1-pull{font-family:var(--display);font-style:italic;font-size:2.2rem;line-height:1.15;padding:30px;border-top:4px solid #8a3324;border-bottom:4px solid #8a3324}
+.s1-pull cite{display:block;font-family:var(--cormorant);font-style:normal;font-size:1rem;letter-spacing:.2em;text-transform:uppercase;margin-top:18px;color:#8a3324}
+.s1 .article-link{color:#8a3324;border-color:#8a3324}
+/* S2 dark midnight */
+.s2{background:#0d0e1a;color:#e8d9b8}
+.s2 .spread-meta{color:#8a7a5a}
+.s2-grid{display:grid;grid-template-columns:.6fr 2fr;gap:60px;align-items:start}
+.s2-numeral{font-family:var(--display);font-weight:900;font-style:italic;font-size:clamp(15rem,28vw,30rem);line-height:.78;color:#c9a96e;letter-spacing:-.06em;margin-top:-40px}
+.s2-headline{font-family:var(--display);font-weight:700;font-style:italic;font-size:clamp(3rem,5.5vw,5.5rem);line-height:1.02;letter-spacing:-.015em;margin-bottom:30px;color:#f0e4c4}
+.s2-headline span{font-style:normal;font-weight:800;color:#c9a96e}
+.s2-deck{font-family:var(--cormorant);font-style:italic;font-size:1.7rem;line-height:1.3;color:#b8a880;max-width:800px;border-top:1px solid #5a4e36;padding-top:24px;margin-bottom:50px}
+.s2-body{columns:2;column-gap:50px;font-size:1.15rem;line-height:1.6;color:#d4c69e}
+.s2-body p{margin-bottom:1em;text-indent:1.4em}
+.s2-body p:first-child{text-indent:0}
+.s2-body strong{color:#e8d9b8;font-weight:600}
+.s2-body a{color:#c9a96e;text-underline-offset:3px}
+.s2-stat-strip{margin-top:60px;padding:30px 0;border-top:1px solid #5a4e36;border-bottom:1px solid #5a4e36;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.s2-stat .num{font-family:var(--display);font-style:italic;font-weight:800;font-size:4.5rem;line-height:1;color:#c9a96e}
+.s2-stat .label{font-family:var(--cormorant);font-size:1.1rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7a5a;margin-top:12px}
+.s2 .article-link{color:#c9a96e;border-color:#c9a96e}
+/* S3 terminal */
+.s3{background:#0a1410;color:#b8e6c4}
+.s3 .spread-meta{color:#4a8a6a;font-family:var(--mono)}
+.s3-bracket{font-family:var(--mono);font-size:1rem;color:#4a8a6a;margin-bottom:30px;letter-spacing:.1em}
+.s3-headline{font-family:var(--display);font-weight:800;font-size:clamp(3.5rem,7vw,7rem);line-height:.95;letter-spacing:-.025em;color:#d4f5dd;margin-bottom:40px}
+.s3-headline em{font-style:italic;color:#6acc8a;font-weight:600}
+.s3-prompt{font-family:var(--mono);font-size:1.05rem;color:#6acc8a;margin-bottom:50px;padding:20px 24px;background:#061008;border-left:3px solid #6acc8a}
+
+
+.s3-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:60px;align-items:start}
+.s3-body{font-family:var(--serif);font-size:1.2rem;line-height:1.6;color:#c8e8d0}
+.s3-body p{margin-bottom:1em}
+.s3-body strong{color:#d4f5dd;font-weight:600}
+.s3-body a{color:#6acc8a;text-underline-offset:3px}
+.s3-findings{background:#061008;border:1px solid #2a4a35;padding:30px}
+.s3-findings-title{font-family:var(--mono);font-size:.95rem;color:#6acc8a;letter-spacing:.15em;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid #2a4a35}
+.finding{margin-bottom:24px}
+.finding:last-child{margin-bottom:0}
+.finding .age{font-family:var(--mono);font-size:1.6rem;color:#ffb84a;font-weight:700;line-height:1.1}
+.finding .age-label{font-family:var(--mono);font-size:.8rem;color:#8aa898;letter-spacing:.1em;margin-bottom:6px}
+.finding .desc{font-family:var(--serif);font-size:1.05rem;line-height:1.4;color:#c8e8d0;margin-top:6px}
+.s3 .article-link{color:#6acc8a;border-color:#6acc8a;font-family:var(--mono);font-size:.9rem}
+/* S4 academic parchment */
+.s4{background:#ebe2d2;color:#2a1f15}
+.s4 .spread-meta{color:#6b4a30}
+.s4-headline{font-family:var(--display);font-weight:400;font-size:clamp(3.8rem,7vw,7rem);line-height:.98;letter-spacing:-.02em;text-align:center;margin:20px auto 30px;max-width:1300px}
+.s4-headline em{font-style:italic;font-weight:700}
+.s4-rule{text-align:center;font-family:var(--display);font-size:2.5rem;color:#6b4a30;margin:30px 0 40px;letter-spacing:.5em}
+.s4-deck{font-family:var(--cormorant);font-style:italic;font-size:1.8rem;line-height:1.35;text-align:center;max-width:900px;margin:0 auto 60px;color:#5a4530}
+.s4-body{columns:3;column-gap:50px;column-rule:1px solid #b8a888;font-size:1.15rem;line-height:1.65;max-width:1500px;margin:0 auto}
+.s4-body p{margin-bottom:1em;text-indent:1.4em}
+.s4-body p:first-child{text-indent:0}
+.s4-body p:first-child::first-letter{font-family:var(--display);font-weight:800;float:left;font-size:6.5em;line-height:.82;padding:10px 14px 0 0;color:#8a3324}
+.s4-body strong{font-variant:small-caps;font-weight:600;letter-spacing:.05em}
+.s4-folio{text-align:center;font-family:var(--cormorant);font-style:italic;font-size:1.1rem;color:#6b4a30;margin-top:60px;padding-top:24px;border-top:1px solid #b8a888}
+.s4-folio span{font-family:var(--display);font-weight:700;padding:0 8px}
+.s4 .article-link{color:#6b4a30;border-color:#6b4a30}
+/* S5 red ledger */
+.s5{background:#1a0e0a;color:#f0e4d4}
+.s5 .spread-meta{color:#c9624a}
+.s5-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.s5-headline{font-family:var(--display);font-weight:800;font-style:italic;font-size:clamp(3.5rem,6.5vw,6.5rem);line-height:.95;letter-spacing:-.02em;color:#f0e4d4;margin-bottom:40px}
+.s5-headline span{color:#e8443a;font-style:normal;font-weight:900}
+.s5-deck{font-family:var(--cormorant);font-style:italic;font-size:1.7rem;line-height:1.3;color:#c8b8a4;margin-bottom:40px;border-top:2px solid #e8443a;padding-top:24px}
+.s5-body{font-family:var(--serif);font-size:1.2rem;line-height:1.65;color:#d8c8b4}
+.s5-body p{margin-bottom:1em;text-indent:1.4em}
+.s5-body p:first-child{text-indent:0}
+.s5-body strong{color:#f0e4d4;font-weight:600}
+.s5-figures{background:#2a1410;padding:50px 40px;border:1px solid #5a2a20}
+.s5-figures-title{font-family:var(--cormorant);font-size:1rem;letter-spacing:.25em;text-transform:uppercase;color:#c9624a;border-bottom:1px solid #5a2a20;padding-bottom:18px;margin-bottom:30px}
+.figure-row{padding:22px 0;border-bottom:1px solid #5a2a20}
+.figure-row:last-child{border-bottom:none;padding-bottom:0}
+.figure-row .num{font-family:var(--display);font-style:italic;font-weight:800;font-size:clamp(2.8rem,4vw,4.5rem);line-height:1;color:#e8443a;letter-spacing:-.02em}
+.figure-row .label{font-family:var(--cormorant);font-style:italic;font-size:1.3rem;line-height:1.3;color:#d8c8b4;margin-top:10px}
+.s5 .article-link{color:#e8443a;border-color:#e8443a}
+/* Colophon */
+.colophon{background:#f5e9c8;color:#111;padding:80px;text-align:center;border-top:1px solid #111}
+.colophon-logo{width:min(60%,400px);height:auto;margin:0 auto 30px;display:block}
+.colophon p{font-family:var(--cormorant);font-style:italic;font-size:1.4rem;max-width:720px;margin:0 auto 16px;line-height:1.45}
+.colophon a{text-decoration:underline;text-underline-offset:3px}
+.colophon .small{font-family:var(--cormorant);font-size:1.05rem;letter-spacing:.22em;text-transform:uppercase;margin-top:40px;font-style:normal}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-top">
+    <span>The AI Spectator &mdash; Weekly Edition</span>
+    <span>No. 18 &nbsp;&bull;&nbsp; May 16, 2026</span>
+    <span>Vol. I</span>
+  </div>
+  <div style="text-align:center">
+    <img src="https://static.wixstatic.com/media/d298db_96783ec03b4e4b8b8f51432a68cd25fe~mv2.png" alt="The AI Spectator" class="cover-hero-logo">
+    <p class="cover-tagline">Five stories from the week in artificial intelligence &mdash; architecture bets, orbital data centers, the creativity tax of accuracy, real-time models, and a benchmark that broke its own ceiling.</p>
+  </div>
+  <div class="cover-bottom">
+    <div>
+      <h4>This Issue</h4>
+      <p>Subquadratic's $29M claim against transformer dominance. Google and SpaceX negotiate the first orbital data centers. Harvard researchers find a way to unlock what models hide. Thinking Machines Lab ships an interaction model built from scratch. Claude Mythos breaks METR's benchmark suite.</p>
+    </div>
+    <div>
+      <h4>In Focus</h4>
+      <p>A Miami startup says it has solved AI's most persistent compute constraint. Third-party evaluation will confirm or complicate those numbers over the next few months. The field is watching.</p>
+    </div>
+    <div>
+      <h4>From the Editor</h4>
+      <p>The Exponential Replacement Curve's doubling time has compressed from seven months to 4.3. METR's benchmark hit its ceiling. These are not unrelated developments. &mdash; <a href="https://www.davidborish.com/the-ai-spectator">davidborish.com</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- SPREAD 1: HERO — Subquadratic / Attention Architecture -->
+<section class="spread s1">
+  <div class="spread-meta">
+    <span>The AI Spectator &nbsp;&bull;&nbsp; No. 18</span>
+    <span class="article-no">I</span>
+    <span>Architecture &nbsp;&bull;&nbsp; May 16, 2026</span>
+  </div>
+  <p class="kicker"><em>The AI Spectator,</em> May 16, 2026</p>
+  <h1 class="s1-headline">The Attention<br><em>Bottleneck</em></h1>
+  <p class="s1-deck">A Miami startup raised $29 million and launched out of stealth with a direct challenge to transformer architecture's quadratic compute cost. The benchmark numbers are strong. The validation process has just begun.</p>
+  <div class="s1-byline">
+    <span>By David Borish</span>
+    <span>Subquadratic &bull; SubQ 1M-Preview &bull; LayerLens Evaluation</span>
+  </div>
+  <div class="s1-grid">
+    <div>
+      <div class="s1-body">
+        <p>The transformer architecture has powered every significant AI model of the past decade. It also carries a structural cost that has shaped product design, infrastructure budgets, and competitive strategy across the industry: compute requirements scale quadratically with context length. Every token is compared against every other token. Double the input length and you roughly quadruple the processing cost.</p>
+        <p>Subquadratic launched out of stealth on May 5, 2026, with $29 million in seed funding and a model called SubQ 1M-Preview, built on what the company calls Subquadratic Sparse Attention. The architecture is designed to process context with compute that scales linearly rather than quadratically. Rather than comparing every token against every other, it selects a small subset of positions for each query token and computes exact attention only over those.</p>
+        <p>The benchmark numbers from launch were strong enough to generate serious attention. SubQ 1M-Preview scored 95.6 percent on RULER 128K, compared to 94.8 percent for Claude Opus 4.6. On MRCR v2, the company reports 65.9, against Claude Opus 4.7 at 32.2 and Gemini 3.1 Pro at 26.3. On SWE-Bench Verified, SubQ scores 81.8 against Opus 4.6's 80.8. The architecture runs 52 times faster than FlashAttention in internal comparisons and requires 63 percent less compute.</p>
+        <p>Cost figures are the number that will attract the most scrutiny. Running SubQ on the 128K RULER benchmark reportedly costs approximately $8, compared to roughly $2,600 on comparable frontier models. If those figures hold under production conditions, they reshape the economics for any team currently rationing context to manage inference costs.</p>
+        <p>The research community's skepticism is grounded in history. A January 2026 technical analysis examined the pattern of prior subquadratic attempts and concluded that no frontier model has successfully deployed a pure subquadratic architecture without performance tradeoffs. Mamba-attention hybrids recover performance by mixing subquadratic layers with standard quadratic attention, which reintroduces the scaling cost. Magic.dev raised $1.75 trillion in valuation on a 100 million token context model with claimed efficiency gains of roughly 1,000 times; as of early 2026, there is no public evidence of significant external adoption.</p>
+        <p>On May 14, Subquadratic announced a partnership with LayerLens to run SubQ through Stratix, a benchmark platform covering more than 200 models and nearly 100 benchmarks. Results will be published at stratix.layerlens.ai with prompt-level breakdowns and head-to-head comparisons. Subquadratic has committed to publishing complete results, including areas where the model underperforms. The evaluation will cover retrieval accuracy at depth, positional consistency, and synthesis from extended inputs.</p>
+        <p>Every AI team currently managing context windows is doing so because cost and performance constraints force tradeoffs. RAG pipelines exist because sending a full document corpus through a transformer is not economically viable. SubQ Code, the coding agent launched alongside the API, processes entire codebases in a single context window without multi-agent coordination. For teams managing large repositories, the value of genuine long-context recall at this cost differential is measurable and direct.</p>
+      </div>
+      <a href="https://www.davidborish.com/post/the-attention-bottleneck-inside-subquadratic-s-claim-to-have-solved-ai-s-most-persistent-compute-pr" class="article-link">Read the full article &rarr;</a>
+    </div>
+    <div>
+      <blockquote class="s1-pull">
+        Running SubQ on the 128K benchmark costs approximately $8. Comparable frontier models cost roughly $2,600.
+        <cite>Subquadratic, May 2026</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- SPREAD 2: DARK MIDNIGHT — SpaceX / Google Orbital Data Centers -->
+<section class="spread s2">
+  <div class="spread-meta">
+    <span>The AI Spectator &nbsp;&bull;&nbsp; No. 18</span>
+    <span class="article-no">II</span>
+    <span>Infrastructure &nbsp;&bull;&nbsp; May 16, 2026</span>
+  </div>
+  <div class="s2-grid">
+    <div>
+      <div class="s2-numeral">2</div>
+    </div>
+    <div>
+      <h2 class="s2-headline">From <span>Orbit</span> to<br>Dyson Swarm</h2>
+      <p class="s2-deck">Google and SpaceX are in talks to launch data centers into space. The Wall Street Journal broke the story May 12. The technology is unproven at scale. The companies involved and the hardware already in orbit make this more than a concept pitch.</p>
+      <div class="s2-body">
+        <p>Google's orbital initiative, called Project Suncatcher, was announced in late 2024. The plan is to launch a cluster of roughly 81 satellites spanning a one-kilometer radius in low-Earth orbit, carrying custom Tensor Processing Units. Planet Labs is building the satellites. Two prototypes are planned for this year, with broader deployment targeted for 2027.</p>
+        <p>SpaceX has filed with the FCC to launch up to a million satellites for its own orbital data center constellation, a project central to its pitch to investors ahead of a planned IPO valued at $1.75 trillion. The company acquired xAI in February in a deal valuing the combined entity at $1.25 trillion. Last week SpaceX struck a deal with Anthropic to supply 300 megawatts of computing capacity using more than 220,000 Nvidia GPUs.</p>
+        <p>The two companies are not simply partnering. They are also competitors. SpaceX dominates commercial access to orbit, which means anyone looking to put satellites in space must at least evaluate a SpaceX deal regardless of competitive overlap.</p>
+        <p>The case for orbital data centers starts with power. Terrestrial facilities face real constraints: land acquisition, grid access, water cooling, permitting, and growing community resistance. A satellite in sun-synchronous orbit can receive near-continuous sunlight at roughly 36 percent higher irradiance than on Earth's surface, with no night cycle. Cooling works through radiative heat dissipation into cold vacuum, eliminating the water-intensive systems that make terrestrial data centers resource-heavy.</p>
+        <p>Starcloud, a Y Combinator-backed startup with Nvidia as a partner, launched its first satellite carrying an H100-class GPU in late 2025 and trained a language model in orbit. Axiom Space launched dedicated orbital data center nodes in January 2026. Blue Origin has announced plans under a project called TeraWave. The field has moved from white papers to hardware in roughly 18 months.</p>
+        <p>The economics remain the obstacle. Estimates put the cost of a one-gigawatt orbital setup at roughly three times that of an equivalent ground installation. SpaceX's own February 2026 pricing listed standard rideshare rates at $7,000 per kilogram. SpaceX disclosed to investors in April that its orbital data center business might not pay off. The companies making these bets are betting on trajectory: launch costs have fallen dramatically over the past decade, and the Starship vehicle, if it achieves its target flight cadence, could reduce per-kilogram costs further.</p>
+        <p>Some researchers have drawn a direct line from today's orbital clusters to the concept of a Dyson swarm, a theoretical megastructure of solar-collecting satellites surrounding a star. Sam Altman has referenced a Dyson sphere of data centers around the Sun. The CEO of Starcloud has described early Earth-orbit clusters as the seed for a solar-system-scale swarm. What looks like a launch services negotiation is also, in a longer view, the first serious commercial step toward moving computation off the planet entirely.</p>
+      </div>
+      <div class="s2-stat-strip">
+        <div class="s2-stat">
+          <div class="num">81</div>
+          <div class="label">Satellites in Google's Project Suncatcher cluster</div>
+        </div>
+        <div class="s2-stat">
+          <div class="num">$7K</div>
+          <div class="label">SpaceX rideshare cost per kilogram, Feb 2026</div>
+        </div>
+        <div class="s2-stat">
+          <div class="num">3&times;</div>
+          <div class="label">Orbital vs. terrestrial data center cost estimate</div>
+        </div>
+      </div>
+      <a href="https://www.davidborish.com/post/from-orbit-to-dyson-swarm-the-100-year-infrastructure-plan-hidden-inside-the-spacex-google-deal" class="article-link">Read the full article &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- SPREAD 3: TERMINAL — Thinking Machines Lab / Interaction Models -->
+<section class="spread s3">
+  <div class="spread-meta">
+    <span>// ai-spectator-weekly-18</span>
+    <span class="article-no">III</span>
+    <span>// interaction_models</span>
+  </div>
+  <div class="s3-bracket">[ THINKING MACHINES LAB &mdash; TML-INTERACTION-SMALL &mdash; MAY 12, 2026 ]</div>
+  <h2 class="s3-headline">When Interactivity<br><em>Scales</em> With<br>Intelligence</h2>
+  <div class="s3-prompt">$ ./run_eval --model=TML-Interaction-Small --bench=FD-bench-1.5<br>
+&gt; score: 77.8 &nbsp;// GPT Realtime 1.5: 54.3 &nbsp;// Gemini Flash Live: 48.3<br>
+&gt; turn-taking latency: 0.40s &nbsp;// GPT Realtime 2.0: 1.18s<br>
+&gt; TimeSpeak accuracy: 64.7% &nbsp;// GPT Realtime 2.0: 4.3%<br>
+&gt; CueSpeak accuracy: 81.7% &nbsp;// GPT Realtime 2.0: 2.9%_</div>
+  <div class="s3-grid">
+    <div>
+      <div class="s3-body">
+        <p>Most AI research focuses on making models smarter. A new paper from Thinking Machines Lab, led by Mira Murati, focuses on something different: making models usable in the way humans naturally work together. The paper introduces what the team calls interaction models, a class of AI systems designed to handle real-time, multimodal collaboration natively rather than through add-on components.</p>
+        <p>The structural problem Thinking Machines identifies is real. Current large language models experience the world one turn at a time. A user types or speaks, the model waits, the model responds, the user waits. Until the user finishes, the model perceives nothing. Until the model finishes generating, it receives no new information. The researchers cite a telling admission buried in a recent frontier model card: when models are used in interactive, hands-on patterns, users often perceive them as too slow, and the card suggested autonomous, long-running harnesses better elicit model capabilities. Thinking Machines reads this as a design concession, not a feature.</p>
+        <p>The core technical idea is what the team calls time-aligned micro-turns. Rather than waiting for a complete user input and generating a complete response, the model processes 200-millisecond chunks of audio, video, and text continuously, interleaving input and output in a single token stream. At any given moment the model is both listening and generating, which allows it to interrupt when something is wrong, backchannel while the user is talking, respond to visual cues without being explicitly prompted, and speak simultaneously with the user when tasks require it.</p>
+        <p>Most existing real-time systems emulate this through external components, primarily voice-activity-detection systems that predict when a speaker has finished. Thinking Machines argues that these components, being far less intelligent than the models they manage, place a ceiling on what real-time AI can do. Proactive behaviors like "interrupt me when I make a factual error" or "count how many pushups I complete" require the system to decide when to respond based on context rather than audio boundary detection. A harness that listens for silence cannot do that.</p>
+        <p>For tasks requiring deeper reasoning than real-time generation can produce, the interaction model delegates to a background model running asynchronously. The interaction model stays active throughout, handling follow-ups and new input, then integrates the background results when the moment is right.</p>
+        <p>The model is 276 billion parameters with 12 billion active, a mixture-of-experts design. The team acknowledges it is too slow to serve larger pretrained models in this real-time setting and plans larger versions later this year. The research preview is limited; Thinking Machines is accepting feedback and plans broader access later this year.</p>
+      </div>
+      <a href="https://www.davidborish.com/post/when-interactivity-scales-with-intelligence-mira-miratti-s-thinking-machines-lab-launches-new-model" class="article-link">Read the full article &rarr;</a>
+    </div>
+    <div>
+      <div class="s3-findings">
+        <div class="s3-findings-title">// BENCHMARK_LOG: TML-INTERACTION-SMALL</div>
+        <div class="finding">
+          <div class="age-label">FD-BENCH 1.5 &mdash; INTERACTIVITY</div>
+          <div class="age">77.8</div>
+          <div class="desc">TML-Interaction-Small vs. 54.3 (Gemini Flash Live) and 48.3 (GPT Realtime 1.5). Covers user interruptions, backchanneling, and speech detection scenarios.</div>
+        </div>
+        <div class="finding">
+          <div class="age-label">TURN-TAKING LATENCY</div>
+          <div class="age">0.40s</div>
+          <div class="desc">TML model response time vs. 1.18 seconds for GPT Realtime 2.0 at minimal settings and 0.57 seconds for Gemini Flash Live.</div>
+        </div>
+        <div class="finding">
+          <div class="age-label">TIMESPEAK &mdash; TIMED SPEECH ACCURACY</div>
+          <div class="age">64.7%</div>
+          <div class="desc">TML model accuracy at initiating speech at user-specified times with correct content. GPT Realtime 2.0 scored 4.3 percent on the same test.</div>
+        </div>
+        <div class="finding">
+          <div class="age-label">REPCOUNT-A &mdash; LIVE VIDEO COUNTING</div>
+          <div class="age">35.4%</div>
+          <div class="desc">Percentage of video rep counts within one rep of correct value. GPT Realtime 2.0 scored 1.3 percent. Existing models essentially fail at visual context tasks.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPREAD 4: ACADEMIC — Harvard RD Research / AI Diversity -->
+<section class="spread s4">
+  <div class="spread-meta">
+    <span>The AI Spectator &nbsp;&bull;&nbsp; No. 18</span>
+    <span class="article-no">IV</span>
+    <span>Research &nbsp;&bull;&nbsp; May 16, 2026</span>
+  </div>
+  <h2 class="s4-headline">Your AI Keeps Giving<br>You the <em>Same Answer</em></h2>
+  <div class="s4-rule">&sect;</div>
+  <p class="s4-deck">Harvard researchers found that as models become more accurate, they become less diverse. The information is in there. Standard decoding just never finds it. Queenie Luo, Gary King, Michael Puett, and Michael D. Smith propose a fix that requires no retraining.</p>
+  <div class="s4-body">
+    <p>Every major AI lab is racing to improve benchmark scores. Models that answer factual questions more accurately and reason more reliably are winning on leaderboards and attracting users. What gets less attention is what is sacrificed in the process. A new working paper from Harvard identifies a specific casualty: the ability to generate genuinely diverse, creative responses over extended use.</p>
+    <p>As models are trained to converge on correct answers, their probability distributions become more peaked around the most common outputs. More information gets pushed into statistical tails where standard decoding methods never look. Newer, more accurate models generate narrower and more repetitive outputs than older ones when asked open-ended questions.</p>
+    <p>The researchers call the most affected category the "search quest": any prolonged, exploratory effort to find an answer that does not yet exist in a fixed form. Choosing a wedding dress, finding a research topic, naming a startup, designing a product. Unlike a factual query with a correct answer, a search quest requires learning the space of possibilities. You do not know what you want until you have seen enough options to understand what is out there. Current AI tools produce a useful first list and then start repeating themselves.</p>
+    <p>The mechanics of why this happens are grounded in how models generate text. At each step, a model computes a probability distribution over all possible next tokens. Standard decoding methods select from the highest-probability tokens, keeping output fluent but ensuring the vast majority of information encoded in the model's parameters is never accessed. The researchers illustrate this: when prompted to brainstorm 18th century world history book topics, a model's top tokens lead to European history. Move to the 300th through 2000th positions and you find tokens like "Asia" and "African," topics the model clearly knows but never volunteers.</p>
+    <p>The Harvard team's solution, called Recoding-Decoding, introduces two forms of randomness at generation time without retraining. A random priming phrase, constructed from the 2,000 most common English nouns, is embedded in the prompt as "Related to NOUN." A random diverting token is drawn from three-letter starting stems of the 5,000 most common English words and placed at the start of each new sentence. Both exploit positional bias, a documented property of language models: they attend more heavily to tokens at the beginning and end of input sequences.</p>
+    <p><strong>The battlefield test is the most striking result.</strong> Standard GPT-5.1, queried about interesting world history battlefields, produced 19 unique locations across 1,000 runs, all in Europe or North America. RD produced 1,307 unique battlefields across a globally distributed range, including East Asia, South Asia, the Middle East, Africa, and Australia. Standard decoding identified zero battlefields that RD did not also find.</p>
+    <p>Across 50 brainstorming topics, RD consistently outperformed all ordinary decoding variants on diversity while maintaining relevance scores of 0.99, essentially matching standard decoding's 0.99 to 1.00. On five public datasets spanning 500 prompts, RD increased diversity by 161 percent on GPT-5.1 and 140 percent on Gemini-3, with relevance scores within one percentage point of standard decoding.</p>
+    <p>One finding cuts against a common assumption: that newer, more capable models are better for creative tasks. The data shows the opposite. As model accuracy improves, the gap between standard decoding and RD widens. Better benchmark performance comes at a measurable cost to output variety when the model is used for open-ended exploration. GPT-5.1 under standard decoding scores lower on diversity than older GPT-3.5.</p>
+    <p>The paper also addresses collective effects. Research published in Science Advances found that generative AI enhances individual creativity while reducing collective diversity: different people's outputs converge on the same ideas. The researchers replicated this pattern when they discovered that students in a university course submitted nearly identical essays without communicating. RD addresses this by ensuring different users asking similar questions receive genuinely different suggestions.</p>
+    <p>The method requires either a completion API or a simulated version using the chat completion API. As frontier labs increasingly restrict raw API access in favor of structured chat interfaces, the practical ceiling for this approach depends on whether providers make completion endpoints available. The research is a reminder that what AI labs optimize for determines what they get and sometimes what they sacrifice.</p>
+  </div>
+  <div class="s4-folio">
+    <em>Luo, King, Puett &amp; Smith &mdash; Harvard University Working Paper, 2026</em> <span>&bull;</span> <em>The AI Spectator, No. 18</em>
+  </div>
+  <a href="https://www.davidborish.com/post/your-ai-keeps-giving-you-the-same-answer-harvard-researchers-just-found-a-way-around-that" class="article-link" style="display:block;text-align:center;margin-top:40px;">Read the full article &rarr;</a>
+</section>
+
+<!-- SPREAD 5: RED LEDGER — Claude Mythos / METR / ERC -->
+<section class="spread s5">
+  <div class="spread-meta">
+    <span>The AI Spectator &nbsp;&bull;&nbsp; No. 18</span>
+    <span class="article-no">V</span>
+    <span>Labor &amp; Capability &nbsp;&bull;&nbsp; May 16, 2026</span>
+  </div>
+  <div class="s5-grid">
+    <div>
+      <h2 class="s5-headline">Claude Mythos<br>Broke <span>METR's</span><br>Benchmark</h2>
+      <p class="s5-deck">On May 8, METR added Claude Mythos Preview to its time horizon tracker and immediately flagged: "Measurements above 16 hours are unreliable with our current task suite." The suite was not designed for a model this capable. The Exponential Replacement Curve projected this. The timeline has compressed.</p>
+      <div class="s5-body">
+        <p>METR's time horizon metric measures the length of a software task, calibrated by how long a human expert takes to complete it, that an AI agent can complete with a given reliability. GPT-4o, released in mid-2024, had a 50 percent time horizon of roughly 7 minutes. Claude 3.7 Sonnet reached about 2 hours. By late 2025, Claude Opus 4.5 and GPT-5 were clustering around 5 to 6 hours. Mythos Preview pushed past what the measurement infrastructure can reliably capture.</p>
+        <p>The acceleration behind that number is the real story. METR's original March 2025 paper found frontier time horizons doubling approximately every 7 months across the 2019 to 2025 period. The updated methodology from January 2026 found the post-2023 doubling time had compressed to 130.8 days, or about 4.3 months. One independent analysis pegged it at roughly 105 days.</p>
+        <p>The Mozilla Firefox team used Mythos Preview to fix 423 security bugs in April 2026, compared to a prior monthly average of 17 to 31. The model identified vulnerabilities requiring multi-component reasoning across large codebases, including a 20-year-old XSLT bug and a race condition that could enable sandbox escape. The UK AI Security Institute found that Mythos can autonomously execute a complete corporate network takeover, succeeding in 30 percent of attempts on a complex attack range that AISI estimates would require roughly 20 hours for a human expert.</p>
+        <p>The <a href="https://www.davidborish.com/exponential-replacement-curve-v2" style="color:#e8443a;">Exponential Replacement Curve framework</a> accounts for the gap between benchmark performance and actual deployment. The capability threshold is what METR measures. The displacement timeline depends on organizational adoption speed, integration costs, and regulatory friction. But the METR data shows the capability side of that equation is moving faster than the framework's original projections assumed.</p>
+        <p>The Stanford and ADP data already showed that employment for workers aged 22 to 25 in AI-exposed occupations fell 6 percent between late 2022 and July 2025, with young software developers down 20 percent from their late 2022 peak. The BLS still projects software developer employment growing 17.9 percent through 2033. That projection was made before a model could fix 423 security bugs in a month that human teams were averaging 17 to 31, and before the leading capability benchmark had to flag its own measurements as unreliable.</p>
+        <p>When the benchmark suite designed to track exponential progress can no longer keep up, the rate of change has outrun the institutions built to monitor it. That is itself a data point for the Exponential Replacement Curve's wave model, which projects displacement pressure building in advance of widespread organizational awareness.</p>
+      </div>
+      <a href="https://www.davidborish.com/post/claude-mythos-just-broke-metr-s-ai-benchmark-further-validating-the-exponential-replacement-curve" class="article-link">Read the full article &rarr;</a>
+    </div>
+    <div>
+      <div class="s5-figures">
+        <div class="s5-figures-title">Key Figures</div>
+        <div class="figure-row">
+          <div class="num">16+ hrs</div>
+          <div class="label">Mythos Preview estimated 50% time horizon on METR &mdash; exceeding the benchmark suite's reliable measurement ceiling</div>
+        </div>
+        <div class="figure-row">
+          <div class="num">4.3 mo</div>
+          <div class="label">Current AI capability doubling time (post-2023), compressed from 7 months in METR's original 2025 paper</div>
+        </div>
+        <div class="figure-row">
+          <div class="num">423</div>
+          <div class="label">Security bugs fixed by Mozilla using Mythos in April 2026, vs. a prior monthly average of 17 to 31</div>
+        </div>
+        <div class="figure-row">
+          <div class="num">30%</div>
+          <div class="label">Mythos success rate on autonomous corporate network takeover, a task AISI estimates at ~20 human-expert hours</div>
+        </div>
+        <div class="figure-row">
+          <div class="num">&minus;20%</div>
+          <div class="label">Young software developer employment vs. late 2022 peak, per Stanford and ADP data through July 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLOPHON -->
+<footer class="colophon">
+  <img src="https://static.wixstatic.com/media/d298db_6b0c8608b3ae42519272162622262675~mv2.png" alt="The AI Spectator" class="colophon-logo">
+  <p>The AI Spectator is a weekly editorial publication by David Borish, covering artificial intelligence through an economic and strategic lens.</p>
+  <p>
+    <a href="https://www.davidborish.com/the-ai-spectator">The AI Spectator</a> &nbsp;&bull;&nbsp;
+    <a href="https://www.davidborish.com/open-prem-inflection-point-v3">Open-Prem Inflection Point V3</a> &nbsp;&bull;&nbsp;
+    <a href="https://www.davidborish.com/the-exponential-replacement-curve">The Exponential Replacement Curve</a>
+  </p>
+  <p class="small">Vol. I &nbsp;&bull;&nbsp; No. 18 &nbsp;&bull;&nbsp; May 16, 2026 &nbsp;&bull;&nbsp; &copy; 2026 David Borish IP, LLC</p>
+</footer>
+
+</body>
+</html>
